@@ -1,0 +1,19 @@
+---
+- name: Automation Platform Configuration
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Add an inventory source
+    ansible.controller.inventory_source:
+      name: Inventory_test
+      description: "This is a test inventory"
+      organization: Default
+      inventory: "Inventory Test"
+      source: scm
+      source_project: Inventory_Test
+      source_path: host
+      state: present
+      overwrite: true
+      update_on_launch: true
+      overwrite_vars: true
